@@ -1,0 +1,54 @@
+<template>
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="combobox-id-1">Account</label>
+        <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+                <div class={comboboxClass}
+                     aria-expanded={hasResults} aria-haspopup="listbox" role="combobox">
+
+                    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none" if:false={selectedAccountId}>
+                        <lightning-input
+                            type="search"
+                            label="Search for an Account"
+                            variant="label-hidden"
+                            id="combobox-id-1"
+                            placeholder="Search Accounts..."
+                            onchange={handleSearchTermChange}
+                            value={searchTerm}>
+                        </lightning-input>
+                    </div>
+
+                    <div if:true={selectedAccountId} class="slds-pill_container">
+                        <lightning-pill
+                            label={selectedAccountName}
+                            onremove={handleClearSelection}>
+                            <lightning-icon icon-name="standard:account" alternative-text="Account"></lightning-icon>
+                        </lightning-pill>
+                    </div>
+
+                    <div id="listbox-id-1" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid" role="listbox" if:true={hasResults}>
+                        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                            <template for:each={accounts} for:item="account">
+                                <li role="presentation" class="slds-listbox__item" key={account.Id}>
+                                    <div data-id={account.Id} data-name={account.Name} onclick={handleAccountSelect}
+                                         class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                         role="option">
+                                        <span class="slds-media__figure slds-listbox__option-icon">
+                                            <span class="slds-icon_container slds-icon-standard-account">
+                                                <lightning-icon icon-name="standard:account"></lightning-icon>
+                                            </span>
+                                        </span>
+                                        <span class="slds-media__body">
+                                            <span class="slds-listbox__option-text slds-listbox__option-text_entity">{account.Name}</span>
+                                            <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">{account.Industry}</span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

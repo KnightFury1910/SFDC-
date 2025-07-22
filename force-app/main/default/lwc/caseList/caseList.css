@@ -1,0 +1,28 @@
+/* This CSS goes into the .css file for ALL card components */
+.custom-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem; /* Prominent rounded corners */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    height: 100%;
+    /* The purple accent on the left */
+    border-left: 4px solid #8b5cf6; 
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.card-title {
+    font-size: 1.125rem; /* Slightly larger title */
+    font-weight: 600;
+    color: #374151; 
+}
+
+.card-body {
+    padding: 1.25rem; /* More padding for content */
+}

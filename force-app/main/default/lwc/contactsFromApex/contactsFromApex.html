@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Associated Contacts">
+        <template if:true={hasContacts}>
+            <template for:each={contacts} for:item="contact">
+                <div key={contact.Id} class="slds-p-around_small">
+                    <p><strong>{contact.Name}</strong></p>
+                    <p>Title: {contact.Title}</p>
+                    <p>Email: {contact.Email}</p>
+                    <p>Phone: {contact.Phone}</p>
+                    <hr />
+                </div>
+            </template>
+        </template>
+        <template if:false={hasContacts}>
+            <p class="slds-p-around_small">No contacts found for this account.</p>
+        </template>
+        <template if:true={error}>
+            <p class="slds-text-color_error">Error: {error.message}</p>
+        </template>
+    </lightning-card>
+</template>

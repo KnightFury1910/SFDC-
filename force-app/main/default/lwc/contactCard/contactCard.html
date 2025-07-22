@@ -1,0 +1,24 @@
+<template>
+    <div class="custom-card">
+        <div class="card-header">
+            <h2 class="card-title">Related Contacts</h2>
+            <lightning-button label="New Contact" onclick={handleNewContact}></lightning-button>
+        </div>
+        <div class="card-body">
+            <template if:false={isListEmpty}>
+                <lightning-datatable
+                    key-field="Id" data={contacts} columns={columns}
+                    onrowaction={handleRowAction} hide-checkbox-column="true">
+                </lightning-datatable>
+            </template>
+            <template if:true={isListEmpty}>
+                 <div class="slds-align_absolute-center slds-var-p-around_medium slds-text-color_weak">
+                    No contacts found.
+                </div>
+            </template>
+        </div>
+        <template if:true={isModalOpen}>
+            <c-new-contact-form record-id={recordId} onsuccess={handleSuccess} onclose={handleCloseModal}></c-new-contact-form>
+        </template>
+    </div>
+</template>

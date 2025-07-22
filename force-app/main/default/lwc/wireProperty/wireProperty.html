@@ -1,0 +1,11 @@
+<!-- wirePropertyExample.html -->
+<template>
+<lightning-card title="Account Info (Property Wire)" icon-name="standard:account">
+<template if:true={accountRecord.data}>
+<p><strong>Name:</strong> {accountName}</p>
+</template>
+<template if:true={accountRecord.error}>
+<p style="color: red;">Error loading account data.</p>
+</template>
+</lightning-card>
+</template>

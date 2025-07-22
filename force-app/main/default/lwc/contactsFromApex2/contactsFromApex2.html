@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Related Contacts">
+      <template if:true={contacts}>
+        <template for:each={contacts} for:item="contact">
+          <div key={contact.fields.Id.value} class="slds-box slds-m-bottom_small">
+            <p><strong>{contact.fields.Name.value}</strong></p>
+            <p>📧 {contact.fields.Email.value}</p>
+            <p>📞 {contact.fields.Phone.value}</p>
+          </div>
+        </template>
+      </template>
+      <template if:true={error}>
+        <p class="slds-text-color_error">Error loading contacts: {error.message}</p>
+      </template>
+    </lightning-card>
+  </template>

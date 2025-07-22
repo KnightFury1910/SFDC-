@@ -1,0 +1,24 @@
+<template>
+    <div class="custom-card">
+        <div class="card-header">
+            <h2 class="card-title">Related Cases</h2>
+            <lightning-button label="New Case" onclick={handleNewCase}></lightning-button>
+        </div>
+        <div class="card-body">
+            <template if:false={isListEmpty}>
+                <lightning-datatable
+                    key-field="Id" data={cases} columns={columns}
+                    hide-checkbox-column="true">
+                </lightning-datatable>
+            </template>
+            <template if:true={isListEmpty}>
+                 <div class="slds-align_absolute-center slds-var-p-around_medium slds-text-color_weak">
+                    No cases found.
+                </div>
+            </template>
+        </div>
+        <template if:true={isNewCaseModalOpen}>
+            <c-new-case-form record-id={recordId} onsuccess={handleSuccess} onclose={handleCloseModal}></c-new-case-form>
+        </template>
+    </div>
+</template>

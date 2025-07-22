@@ -1,0 +1,26 @@
+<template>
+    <div class="dashboard-container">
+        <div class="slds-var-p-around_medium">
+            <div class="custom-card slds-var-p-around_medium slds-var-m-bottom_medium">
+                <c-account-search-box onaccountselect={handleAccountSelect}></c-account-search-box>
+            </div>
+
+            <template if:true={selectedAccountId}>
+                <lightning-layout multiple-rows="true">
+                    <lightning-layout-item size="12" medium-device-size="5" padding="around-small">
+                        <c-account-summary record-id={selectedAccountId}></c-account-summary>
+                        <div class="slds-var-m-top_medium">
+                            <c-contact-card record-id={selectedAccountId}></c-contact-card>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" medium-device-size="7" padding="around-small">
+                        <c-opportunity-table record-id={selectedAccountId}></c-opportunity-table>
+                        <div class="slds-var-m-top_medium">
+                           <c-case-list record-id={selectedAccountId}></c-case-list>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+        </div>
+    </div>
+</template>

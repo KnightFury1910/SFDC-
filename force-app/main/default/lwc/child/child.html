@@ -1,0 +1,8 @@
+<template>
+    <h2>📦 Product List</h2>
+    <template if:true={products}>
+      <template for:each={products} for:item="prod">
+        <p key={prod.name}>{prod.name} – ₹{prod.price}</p>
+      </template>
+    </template>
+  </template>

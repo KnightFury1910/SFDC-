@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Filter Accounts" icon-name="utility:filterList">
+        <div class="slds-p-around_medium">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
+                    <lightning-combobox 
+                        label="Industry" 
+                        value={industry} 
+                        options={industryOptions} 
+                        onchange={handleIndustryChange}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
+                    <lightning-combobox 
+                        label="Rating" 
+                        value={rating} 
+                        options={ratingOptions} 
+                        onchange={handleRatingChange}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12" padding="around-small">
+                    <lightning-slider 
+                        label="Minimum Annual Revenue" 
+                        value={revenue} 
+                        min="0" 
+                        max="1000000" 
+                        step="10000"
+                        onchange={handleRevenueChange}>
+                    </lightning-slider>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

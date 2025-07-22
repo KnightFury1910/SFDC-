@@ -1,0 +1,10 @@
+<!-- helloForEach.html -->
+<template>
+    <lightning-card title="HelloForEach" icon-name="custom:custom14">
+      <ul class="slds-m-around_medium">
+        <template for:each={cities} for:item="c">
+          <li key={c}>{c}</li>
+        </template>
+      </ul>
+    </lightning-card>
+  </template>

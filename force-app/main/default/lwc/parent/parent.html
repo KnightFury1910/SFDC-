@@ -1,0 +1,8 @@
+<template>
+<lightning-input label="Product Name" value={productName} onchange={handleNameChange}></lightning-input>
+<lightning-input label="Product Price" type="number" value={productPrice} onchange={handlePriceChange}></lightning-input>
+
+<lightning-button label="Add Product" onclick={handleAddProduct}></lightning-button>
+
+<c-child></c-child>
+</template>

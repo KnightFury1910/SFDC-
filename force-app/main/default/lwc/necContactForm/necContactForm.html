@@ -1,0 +1,53 @@
+<template>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <lightning-button-icon
+                    icon-name="utility:close"
+                    alternative-text="Close"
+                    class="slds-modal__close"
+                    onclick={handleClose}>
+                </lightning-button-icon>
+                <h2 class="slds-text-heading_medium">New Contact</h2>
+            </header>
+
+            <div class="slds-modal__content slds-var-p-around_medium">
+                <lightning-record-edit-form
+                    object-api-name="Contact"
+                    onsuccess={handleSuccess}
+                    onerror={handleError}>
+                    <lightning-messages></lightning-messages>
+
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-2 slds-var-p-horizontal_small">
+                           <lightning-input-field field-name="FirstName" required></lightning-input-field>
+                           <lightning-input-field field-name="Email"></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2 slds-var-p-horizontal_small">
+                           <lightning-input-field field-name="LastName" required></lightning-input-field>
+                           <lightning-input-field field-name="Phone"></lightning-input-field>
+                        </div>
+                         <div class="slds-col slds-size_1-of-1 slds-var-p-horizontal_small">
+                            <lightning-input-field field-name="Title"></lightning-input-field>
+                        </div>
+                    </div>
+
+                    <div class="slds-hide">
+                        <lightning-input-field field-name="AccountId" value={recordId}></lightning-input-field>
+                    </div>
+
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={handleClose}>Cancel</button>
+                        <lightning-button
+                            variant="brand"
+                            type="submit"
+                            label="Save">
+                        </lightning-button>
+                    </footer>
+                </lightning-record-edit-form>
+            </div>
+        </div>
+    </section>
+</template>

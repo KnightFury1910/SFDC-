@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Filter Message Channel</masterLabel>
+    <description>Filter criteria message</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <fieldName>industry</fieldName>
+          </lightningMessageFields>
+           <lightningMessageFields>
+        <fieldName>rating</fieldName>
+          </lightningMessageFields>
+           <lightningMessageFields>
+        <fieldName>revenue</fieldName>
+    </lightningMessageFields>
+</LightningMessageChannel>

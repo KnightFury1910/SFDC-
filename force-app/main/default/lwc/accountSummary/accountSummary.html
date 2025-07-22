@@ -1,0 +1,35 @@
+<template>
+    <div class="custom-card">
+        <template if:true={wiredAccount.data}>
+            <div class="card-header">
+                <h2 class="card-title">Account Summary</h2>
+            </div>
+            <div class="card-body">
+                <lightning-layout multiple-rows="true">
+                    <lightning-layout-item size="12" large-device-size="6" padding="around-small">
+                        <div class="slds-form-element slds-form-element_stacked">
+                            <span class="slds-form-element__label">Industry</span>
+                            <div class="slds-form-element__control slds-text-body_regular">{industry}</div>
+                        </div>
+                         <div class="slds-form-element slds-form-element_stacked slds-var-m-top_medium">
+                            <span class="slds-form-element__label">Rating</span>
+                            <div class="slds-form-element__control slds-text-body_regular">{rating}</div>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" large-device-size="6" padding="around-small">
+                        <div class="slds-form-element slds-form-element_stacked">
+                            <span class="slds-form-element__label">Type</span>
+                            <div class="slds-form-element__control slds-text-body_regular">{type}</div>
+                        </div>
+                        <div class="slds-form-element slds-form-element_stacked slds-var-m-top_medium">
+                            <span class="slds-form-element__label">Account Owner</span>
+                            <div class="slds-form-element__control slds-text-body_regular">
+                                <a href={ownerUrl} title="View Owner" target="_blank">{ownerName}</a>
+                            </div>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </template>
+    </div>
+</template>

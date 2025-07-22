@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Matching Contacts">
+      <template if:true={contacts}>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Account Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template for:each={contacts} for:item="contact">
+              <c-contact-line-item key={contact.Id} contact={contact} onselect={handleSelect}></c-contact-line-item>
+            </template>
+          </tbody>
+        </table>
+      </template>
+    </lightning-card>
+  </template>

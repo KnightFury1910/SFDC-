@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title={accountTitle} icon-name="standard:contact">
+        <div class="slds-p-around_medium">
+            <template if:true={accountId}>
+                <template if:true={contacts}>
+                    <template for:each={contacts} for:item="contact">
+                        <div key={contact.Id} class="slds-box slds-m-bottom_small slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-6">
+                                <img src={profileImageUrl} alt="Contact Image" class="slds-avatar slds-avatar_medium" />
+                            </div>
+                            <div class="slds-col slds-size_5-of-6">
+                                <p><strong>{contact.Name}</strong></p>
+                                <p>Email: {contact.Email}</p>
+                                <p>Phone: {contact.Phone}</p>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+                <template if:false={contacts}>
+                    <p>No contacts found for this account.</p>
+                </template>
+            </template>
+            <template if:false={accountId}>
+                <p>Please select an account to view its contacts.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

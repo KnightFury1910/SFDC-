@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Selected Fruits">
+        <template if:true={selectedFruits.length}>
+            <ul>
+                <template for:each={selectedFruits} for:item="fruit">
+                    <li key={fruit}>{fruit}</li>
+                </template>
+            </ul>
+        </template>
+        <template if:false={selectedFruits.length}>
+            <p>No fruits selected.</p>
+        </template>
+    </lightning-card>
+</template>
